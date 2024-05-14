@@ -1,0 +1,15 @@
+# Use the latest ROOT image as the base
+FROM rootproject/root:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy ClassificationCategory.C and data directory from the host to the container
+COPY ClassificationCategory.C ClassificationCategory.C
+COPY data data
+
+# Update package list and install libblas-dev
+RUN apt-get update && apt-get install -y libblas-dev
+
+# Specify to start a bash shell when the container starts
+CMD ["/bin/bash"]
