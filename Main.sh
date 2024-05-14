@@ -102,7 +102,7 @@ delete_folders() {
 # Deleting pre-existing folders and results from ROOT
 delete_folders evaluation_results dataset
 rm TMVACC.root
-rm ROC_curve.png
+rm plot_ROC/ROC_curve.png
 rm ROC_curve.pdf
 ####################### User Interface #######################
 
