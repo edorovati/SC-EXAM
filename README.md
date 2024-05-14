@@ -123,12 +123,10 @@ The user needs to execute the script that configures the folder settings and dow
 $ chmod +x Setting.sh
 $ ./Setting.sh
 ````````````````````````
-
-Durante l'esecuzione del codice verrà installato il dataset e verrà spostato poi nelle cartelle di interesse pur mantenendo una copia principale nella root folder. Successivamente c'è una verifica della disponibilità di Python e ROOT, e possono accadere le seguenti cose: 
+During the execution of the code, the dataset will be installed and will then be moved to the folders of interest while maintaining a master copy in the root folder. Next, there is a Python and ROOT availability check, and the following things can happen: 
 
 - Case 1, ROOT and Python present: The script allows the user to see some preliminary graphs of the dataset. Then the main program `Main.sh` is run, and from that point on everything is handled by the interface created by this file.
-- Case 2, ROOT and/or Python are missing: In this case, the script will take this into account and ask the user if they want to start Docker, given the absence of one or both of the main programs, and move the code execution to another script called `Docker.sh`, which will take care of starting Docker containers depending on what is not present on the user's machine. Note however that in this case the analysis will not be started as it is not part of the main code, so if the user does not have ROOT only then simply follow the instructions to run the '_Analysis.py_' file in the appropriate section. On the other hand, if the user does not have Python, then it will be necessary to run the dockerfile inside the '__Analysis__' folder, as shown in the appropriate section. Finally, the code will run `Docker.sh' if at least one of ROOT and Python is not present, but if either is present, the user will be asked if they want to create a docker environment and run the code in docker anyway. If the answer is no, the code will exit and the user will have to run the code themselves if user wishes (see below how to do).
-
+- Case 2, ROOT and/or Python are missing: In this case, the script will take this into account and ask the user if they want to start Docker, given the absence of one or both of the main programs, and move the code execution to another script called `Docker.sh`, which will take care of starting Docker containers depending on what is not present on the user's machine. Note however that in this case the analysis will not be started as it is not part of the main code, so if the user does not have ROOT only then simply follow the instructions to run the '_Analysis.py_' file in the appropriate section. On the other hand, if the user does not have Python, it will be necessary to run the dockerfile inside the '__Analysis__' folder, as shown in the appropriate section. Finally, the code will execute `Docker.sh' if neither ROOT and Python is present; if at least one of the two is present, however, the user will be asked if they want to use docker anyway or run the python code themselves. In the latter case, the code will exit and the user will have to run the code themselves (see below how to do).
 
 Finally, User can perform grid search in the designated folder ("grid_search"). In this case, there's a bash file to execute:
 
@@ -144,9 +142,10 @@ $ ./Grid.sh
 If the user wishes to run the individual files, the following must be done first: download the dataset file (see how to do this below). Alternatively, there may already be a dataset in '__data_backup__', in which case simply rename the '__data__' folder.
 
 ``````````````````````````````
-- $ cd your/path/to/SC-EXAM  
-- $ mkdir data               
-- $ wget -O data/toy_sigbkg_categ_offset.root "https://drive.google.com/uc?id=1NDWLpmLKDRPjrspXVl3zLOkXBSRzScV_"
+$ cd your/path/to/SC-EXAM  
+$ mkdir data          
+$ wget -O data/toy_sigbkg_categ_offset.root "https://drive.google.com/uc?id=1NDWLpmLKDRPjrspXVl3zLOkXBSRzScV_"
+$ cp -r data <desired_folder>
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 Then the users can:
@@ -166,8 +165,11 @@ Then the users can:
 Afterwards, it is possible to run main.py with at least one model:
 
 `````````````````````````````
- $ python3 plot_ROC/ROC_comparison.py
+ $ python3 plot_ROC/ROC_comparison.py <model_name1 model_name2 ...>
 `````````````````````````````
+       <model_name> = BDT, Neural_Network, kNN, SVT, Random_Forest 
+       
+select more than one model to perform the comparison 
 
 - Whitin '__grid_search__' a grid search could be perfomed
 
@@ -204,7 +206,7 @@ $ docker build -t <name_image> .
 $ docker run --rm -it <name_image>
 `````````````````````````````
 
-- Ora puoi eseguire i vari comandi a seconda della folder dentro cui hai eseguito il docker file:
+- You can now execute the desired commands depending on the folder in which you have run the docker:
    - If you have run the dockerfile inside '__Analysis__':
 
      `````````````````````````````
