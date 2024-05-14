@@ -22,7 +22,7 @@ Within the `Analysis` folder, you'll find the `Analysis.py` script, designed for
   - The distribution of "var1", "var2", "var3", and "var4" relative to "eta" is illustrated, indicating no conspicuous variations between signal and background classes. Both classes exhibit uniform variable distributions within the range of eta [-1.3, 1.3], with noticeable shifts for absolute eta values exceeding 1.3. Categorisation is applied to this region due to discernible changes in variable trends.
  
 <p align="center">
-  <img width="800" height="560" src="https://github.com/edorovati/SC-EXAM/blob/main/Analysis/python_plots/scatter_eta_vs_vars.png">
+  <img width="800" height="560" src="https://github.com/edorovati/SC-EXAM/blob/main/Analysis/python_plots/scatter_eta_vs_var4.png">
 </p>
 
 - **Scatter Plots of Variables:**
