@@ -239,6 +239,7 @@ $ docker run --rm -it <name_image>
 
 ----------------------------------------------------------------------------------------------
 **N.B: In the event that the wget download fails, i.e. the downloaded file is seen by the programs as a non-ROOT file, a folder containing the data set will be present in the program: '__data_backup__'. Just rename as '__data__', copy and move it in the folders '__Analysis__', '__grid_search__', '__Python_Cat__' and '__TMVA_Cat__' and follow the instructions above to run the code (section '_without wget_'). The same applies if the user does not have wget installed on the computer and does not wish to install it.**
+
 ----------------------------------------------------------------------------------------------
 **The code has been tested on MacOS 14.4 (M3 chip), with ROOT version 6.30.06, python version 3.12.3 and docker version 26.0.0.**
 
