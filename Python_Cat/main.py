@@ -11,7 +11,7 @@ import include.MetricPrinter as mp #Module for printing metrics
 
 
 
-############################### Main code ###############################
+############################### Start of code ###############################
 '''
 Checks whether the script is executed as a main program and checks whether 
 the correct number of arguments has been supplied from the command line.
