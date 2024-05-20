@@ -67,6 +67,6 @@ In the following all the above-mentioned images are display for each model: BDT,
 </p>
 
 ## Conclusions:
-The main goal of this code is to show how categorisation improves the results; in particular, the training dataset is divided according to the values of a spectator variables. It allows to train feature with more similar behaviour, improving reliability of the trained model. This is visible both on python and TMVA codes.
-It is also important to note that not all variables are equally employed for training; in particular, it seems that "var4" is the more useful to discriminate signal and background: it is also visible from its distribution of signal and background. All the methods employed rely more on "var4" except for the kNN, since it discriminate among signal and background events just looking to the vicinity concept, equally for all the feature.
+The main goal of this code is to show how categorisation improves the results; in particular, the training dataset is divided according to the values of a spectator variables. It allows to train features with more similar behaviour, improving reliability of the trained model. This is visible both on Python and TMVA codes.
+It is also important to note that not all variables are equally employed for training; in particular, it seems that "var4" is the more useful to discriminate signal and background classes: it is also visible from its distribution of signal and background. All the methods employed rely more on "var4" except for the kNN, since it discriminate among signal and background events just looking to the vicinity concept, equally for all the features.
 
