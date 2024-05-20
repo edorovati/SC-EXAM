@@ -1,6 +1,6 @@
 # Preliminary Analysis
 
-Within the `Analysis` folder, you'll find the `Analysis.py` script, designed for conducting preliminary analysis on the dataset. Specifically, it generates and documents the following plots within the `python_plots` folder. This folder is automatically generated within the `Analysis` directory during the analysis process, and subsequently deleted by the bash file. However, it remains in the repository to showcase the results to the user.
+Within the `Analysis` folder, you will find the `Analysis.py` script, designed for conducting preliminary analysis on the dataset. Specifically, it generates and documents the following plots within the `python_plots` folder. This folder is automatically generated within the `Analysis` directory during the analysis process, and subsequently deleted by the bash file. However, it remains in the repository to showcase the results to the user.
 
 ### Main Results:
 
