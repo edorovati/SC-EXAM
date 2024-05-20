@@ -59,8 +59,6 @@ This script provides an interactive interface for conducting classification anal
 1) The main menu prompts users to choose between analysis with ROOT or Python. Depending on the choice, it executes the corresponding analysis and offers the option to conduct additional analysis in Python and compare results with an ROC plot using the `ROC_comparison.py` script.
 2) _Function `execute_with_root()`_: Performs classification analysis using TMVAClassificationCategory with ROOT. It utilizes the command `root -l` to execute the ROOT script `ClassificationCategory.C`.
 3) _Function `execute_with_python()`_: Enables users to choose from various classification models (BDT, Neural Network, Random Forest, SVM, kNN) and executes the Python script `main.py` with the selected model. After running a model, it asks if users want to perform another analysis in Python.
-4) _Function `ask_another_python_analysis()`_: Asks users if they want to conduct another analysis in Python. Returns 0 if users answer 'y' or 'Y', and 1 if they answer 'n' or 'N'.
-5) _Function `ask_root_analysis()`_: Inquires if users want to perform the analysis in ROOT. If the answer is 'y' or 'Y', it executes `execute_with_root`.
 
 ### Setting.sh
 
