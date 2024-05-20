@@ -6,7 +6,7 @@ This project aims to classify signal and background data using machine learning 
 2. The Python analysis implements several methods that are not present in the TMVA code: Neural Network, BDT, Random Forest, k-Nearest Neighbours kNN and the Support Vector Machine SVM. While the first three methods are quite conventional, the last two may require some motivation. The kNN is one of the simplest classification methods, based on the idea of similarity: similar objects are close together in space; it is a simple but effective classification method. In fact, the support vector machine searches for the interplane that maximises the separation between the two classes; if the former is usually chosen for small datasets with a simple data pattern, the latter is usually preferred for datasets of larger dimensions.
 The Python analysis is carried out by implementing classes; the choice is driven by the fact that common features appear in the code: data loading and normalisation, implementation of the classifier and evaluation of the model. For this reason, the classes are organised in the include folder with the following names Classifier.py, MetricPrinter.py, DataPreparation.py. The code is executed from main.py.
 
-The user can choose how to perform the analysis by running the bash file ./Main.sh (it is in the "__Bash_folder__" folder), where the user must first choose whether to use python or root to analyse the data, and if the former is chosen, the user must choose between the methods available in python. At the end, the ROC curve is displayed with all the Python methods selected. 
+The user can choose how to perform the analysis by running the bash file ./Main.sh in the main folder, where the user must first choose whether to use python or ROOT to analyse the data, and if the former is chosen, the user must choose between the methods available in Python. At the end, the ROC curve is displayed with all the Python methods selected. 
 
 The best choice for the model parameters is made implementing the grid search: it is implemented separately in all the codes (in the folder "grid_search") and run by ./grid_run.sh; it allows to look for the best model parameters which are then implemented in the model definition within classes.
 
@@ -50,7 +50,7 @@ Note also that the '__grid_search__', '__Analysis__', '__TMVA_Cat__', '__Python_
 
 ## Some Comments about bash file code:
 
-In this section, the workings of the two bash files are elucidated. They are kept separate from the initial code explanation for practical and logistical reasons, as they represent a means to execute the programs.
+In this section, the workings of the two bash files are elucidated. They are kept separate from the initial code explanation as they represent a means to execute the programs.
 
 ### Main.sh
 
