@@ -174,7 +174,7 @@ select more than one model to perform the comparison
 
 
 `````````````````````````````
- $ python3 grid_search/<model_name>_Grid.py 
+ $ python3 <model_name>_Grid.py 
 `````````````````````````````
      <model_name> = BDT, NN, KNN, Random_Forest
 
