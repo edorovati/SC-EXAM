@@ -144,6 +144,7 @@ $ cd your/path/to/SC-EXAM
 $ mkdir data          
 $ wget -O data/toy_sigbkg_categ_offset.root "https://drive.google.com/uc?id=1NDWLpmLKDRPjrspXVl3zLOkXBSRzScV_"
 $ cp -r data <desired_folder>
+       <desired_folder> = Analysis, Python_Cat, grid_search, TMVA_Cat
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 Then the users can:
