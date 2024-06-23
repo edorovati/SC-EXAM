@@ -225,7 +225,7 @@ $ docker run --rm -it <name_image>
     $ root -l -b -q ClassificationCategory.C
     `````````````````````````````
 
-  - If you have run the dockerfile inside '__Python_Cat__' (Note that the comparison programme could be called after at least one model has been called):
+  - If you have run the dockerfile inside '__Python_Cat__' (Note that the comparison programme could be called after at least one model has been called). Please note in this case user has to __copy the plot_ROC folder within the Python_Cat folder__, otherwise docker would not run.:
     
      `````````````````````````````
      $ python3 my_project/main.py <model_name>
@@ -233,7 +233,7 @@ $ docker run --rm -it <name_image>
      `````````````````````````````
          <model_name> = BDT, Neural_Network, kNN, SVT, Random_Forest
 
-Please note in __latter case__  user has to __copy the plot_ROC folder within the Python_Cat folder__, otherwise docker would not run.
+
      
 
 
