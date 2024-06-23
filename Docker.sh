@@ -43,19 +43,18 @@ start_docker_Python(){
             1️⃣) BDT
             2️⃣) Neural Network
             3️⃣) Random Forest
-            4️⃣) SVM
+            4️⃣) SVT
             5️⃣) kNN
-            6️⃣) Compare results and explore before exiting
+            6️⃣) Explore folders before exiting
             Type the number corresponding to your choice: " model_choice
         
             case $model_choice in
                 1) model_name="BDT";;
                 2) model_name="Neural_Network";;
                 3) model_name="Random_Forest";;
-                4) model_name="SVM";;
+                4) model_name="SVT";;
                 5) model_name="kNN";;
                 6)
-                    python3 plot_ROC/ROC_comparison.py
                     while true; do
                         read -p "Type exit to quit. Alternatively, you can engage with Docker prior to exiting: " input
                         if [[ $input == 'exit' ]]; then
