@@ -229,9 +229,11 @@ $ docker run --rm -it <name_image>
     
      `````````````````````````````
      $ python3 my_project/main.py <model_name>
-     $ python3 plot_ROC/ROC_comparison.py
+     $ python3 plot_ROC/ROC_comparison.py <model_name_runned>
      `````````````````````````````
          <model_name> = BDT, Neural_Network, kNN, SVT, Random_Forest
+
+Please note in __latter case__  user has to __copy the plot_ROC folder within the Python_Cat folder__, otherwise docker would not run.
      
 
 
