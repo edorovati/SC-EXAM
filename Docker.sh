@@ -35,48 +35,53 @@ start_docker_Python(){
     if ! docker image inspect "$container_name_python" &> /dev/null; then
         docker build -t "$container_name_python" .
     fi
-    # Run Docker container with Python model selection
     docker run -it --name "$container_name_python" "$container_name_python" /bin/bash -c '
-        selected_models=""
-        while true; do
-            read -p "Choose a model to run:
-            1️⃣) BDT
-            2️⃣) Neural Network
-            3️⃣) Random Forest
-            4️⃣) SVT
-            5️⃣) kNN
-            6️⃣) Explore folders before exiting
-            Type the number corresponding to your choice: " model_choice
-        
-            case $model_choice in
-                1) model_name="BDT";;
-                2) model_name="Neural_Network";;
-                3) model_name="Random_Forest";;
-                4) model_name="SVT";;
-                5) model_name="kNN";;
-                6)
-                    while true; do
-                        read -p "Type exit to quit. Alternatively, you can engage with Docker prior to exiting: " input
-                        if [[ $input == 'exit' ]]; then
-                            break
-                        else
-                            eval $input
-                        fi
-                    done
-                    break;;
-                *) echo "❌ Invalid choice. Please try again. ❌";;
-            esac
-        
-            if [ "$model_choice" != "exit" ] && [ -n "$model_name" ]; then
-                if [[ ! "$selected_models" =~ "$model_name" ]]; then
-                    selected_models="$selected_models$model_name"
-                    python3 my_project/main.py $model_name
+    selected_models=""
+    while true; do
+        read -p "Choose a model to run:
+        1️⃣) BDT
+        2️⃣) Neural Network
+        3️⃣) Random Forest
+        4️⃣) SVT
+        5️⃣) kNN
+        6️⃣) Compare results and explore before exiting
+        Type the number corresponding to your choice: " model_choice
+    
+        case $model_choice in
+            1) model_name="BDT";;
+            2) model_name="Neural_Network";;
+            3) model_name="Random_Forest";;
+            4) model_name="SVT";;
+            5) model_name="kNN";;
+            6)
+                if [ -n "$selected_models" ]; then
+                    python3 plot_ROC/ROC_comparison.py $selected_models
                 else
-                    echo "⚠️ You have already selected $model_name. Please choose a different model. ⚠️"
+                    echo "⚠️ No models selected for comparison. ⚠️"
                 fi
+                while true; do
+                    read -p "Type exit to quit. Alternatively, you can engage with Docker prior to exiting: " input
+                    if [[ $input == 'exit' ]]; then
+                        break
+                    else
+                        eval $input
+                    fi
+                done
+                break;;
+            *) echo "❌ Invalid choice. Please try again. ❌";;
+        esac
+    
+        if [ "$model_choice" != "exit" ] && [ -n "$model_name" ]; then
+            if [[ ! "$selected_models" =~ "$model_name" ]]; then
+                selected_models="$selected_models $model_name"
+                python3 my_project/main.py $model_name
+            else
+                echo "⚠️ You have already selected $model_name. Please choose a different model. ⚠️"
             fi
-        done
+        fi
+    done
 '
+
 
 
 rm -r plot_ROC
