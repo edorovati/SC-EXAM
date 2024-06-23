@@ -25,8 +25,8 @@ bkg_tree = file["TreeB"]
 num_signals = sig_tree.num_entries
 num_backgrounds = bkg_tree.num_entries
 
-print("Numero di eventi nel segnale:", num_signals)
-print("Numero di eventi nel rumore di fondo:", num_backgrounds)
+print("Number of events in the signal dataset:", num_signals)
+print("Number of events in the background dataset:", num_backgrounds)
 
 
 #Extracting the varibales from the signal and background trees
