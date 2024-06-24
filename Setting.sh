@@ -21,7 +21,7 @@ download_from_google_drive() {
     # Download the file using wget
     wget -O "data/$file_name" "$google_drive_url"
     
-    echo "File downloaded successfully. ✅"
+    echo "File downloaded successfully."
 }
 
 # Call the function to download the file from Google Drive
@@ -45,14 +45,14 @@ copy_folder() {
     
     # Check if the source folder exists
     if [ ! -d "$source" ]; then
-        echo "Source folder does not exist: $source ❌"
+        echo "Source folder does not exist: $source"
         return 1
     fi
     
     # Copy the folder and its contents to the destination folder
     cp -r "$source" "$destination"
     
-    echo "Folder copied successfully from $source to $destination ✅"
+    echo "Folder copied successfully from $source to $destination"
 }
 
 # Use function to copy dataset into Analysis and grid_search folders
@@ -81,13 +81,13 @@ check_root() {
         
         # Compare ROOT version with required version
         if [[ "$root_version" != *"$required_root_version"* ]]; then
-            echo "❌ Incorrect version of ROOT installed. Required version: $required_root_version ❌"
+            echo "Incorrect version of ROOT installed. Required version: $required_root_version"
             available_ROOT=1 # It now indicates the absence of ROOT
         else
-            echo "✅ ROOT is installed and has the correct version ($required_root_version). ✅"
+            echo "ROOT is installed and has the correct version ($required_root_version)."
         fi
     else
-        echo "❌ ROOT is not installed. Please install ROOT before proceeding. ❌"
+        echo "ROOT is not installed. Please install ROOT before proceeding."
         available_ROOT=1 # It now indicates the absence of ROOT
     fi
 }
@@ -102,13 +102,13 @@ check_python() {
         
         # Compare Python 3 version with required version
         if [ "$(printf "%s\n" "$required_python_version" "$python_version" | sort -V | head -n1)" != "$required_python_version" ]; then
-            echo "❌ Incorrect version of Python 3 installed. Required version: $required_python_version ❌"
+            echo "Incorrect version of Python 3 installed. Required version: $required_python_version"
             available_PY=1 # It now indicates the absence of PY
         else
-            echo "✅ Python 3 is installed and has the correct version ($required_python_version). ✅"
+            echo "Python 3 is installed and has the correct version ($required_python_version)."
         fi
     else
-        echo "❌ Python 3 is not installed. Please install Python 3 before proceeding. ❌"
+        echo "Python 3 is not installed. Please install Python 3 before proceeding."
         available_PY=1 # It now indicates the absence of PY
     fi
 }
@@ -129,7 +129,7 @@ inform_about_docker() {
     read -p "(y/n): " docker_choice
     case $docker_choice in
         [Yy]*)
-            echo "📊 Running the project using Docker... 📊"
+            echo "Running the project using Docker..."
             chmod +x Docker.sh
             ./Docker.sh $available_ROOT $available_PY
             exit 1;;
@@ -138,7 +138,7 @@ inform_about_docker() {
             exit 1
             ;;
         *)
-            echo "❌ Not a valid choice! Please repeat. ❌"
+            echo "Not a valid choice! Please repeat."
             inform_about_docker
             ;;
     esac
@@ -191,7 +191,7 @@ while true; do
             break  # Esci dal ciclo mentre senza eseguire l'analisi
             ;;
         *)
-            echo "❌ Not a valid choice! Please repeat. ❌"
+            echo "Not a valid choice! Please repeat."
             ;;
     esac
 done
