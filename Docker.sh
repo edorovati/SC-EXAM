@@ -10,7 +10,7 @@ container_name_python="py_with_shell"
 ######################################
 
 start_docker_ROOT() {
-    echo "📊 Starting Docker container for ROOT... 📊"
+    echo "Starting Docker container for ROOT... "
     cd TMVA_Cat
     # Build Docker container if not exists
     if ! docker image inspect "$container_name_root" &> /dev/null; then
@@ -29,7 +29,7 @@ start_docker_ROOT() {
 #######################################
 
 start_docker_Python(){
-    echo "📊 Starting Docker container for Python... 📊"
+    echo "Starting Docker container for Python..."
     cd Python_Cat
     # Build Docker container if not exists
     if ! docker image inspect "$container_name_python" &> /dev/null; then
@@ -39,12 +39,12 @@ start_docker_Python(){
     selected_models=""
     while true; do
         read -p "Choose a model to run:
-        1️⃣) BDT
-        2️⃣) Neural Network
-        3️⃣) Random Forest
-        4️⃣) SVT
-        5️⃣) kNN
-        6️⃣) Compare results and explore before exiting
+         1) BDT
+         2) Neural Network
+         3) Random Forest
+         4) SVT
+         5) kNN
+         6) Compare results and explore before exiting
         Type the number corresponding to your choice: " model_choice
     
         case $model_choice in
@@ -57,7 +57,7 @@ start_docker_Python(){
                 if [ -n "$selected_models" ]; then
                     python3 plot_ROC/ROC_comparison.py $selected_models
                 else
-                    echo "⚠️ No models selected for comparison. ⚠️"
+                    echo "No models selected for comparison."
                 fi
                 while true; do
                     read -p "Type exit to quit. Alternatively, you can engage with Docker prior to exiting: " input
@@ -68,7 +68,7 @@ start_docker_Python(){
                     fi
                 done
                 break;;
-            *) echo "❌ Invalid choice. Please try again. ❌";;
+            *) echo "Invalid choice. Please try again.";;
         esac
     
         if [ "$model_choice" != "exit" ] && [ -n "$model_name" ]; then
@@ -76,7 +76,7 @@ start_docker_Python(){
                 selected_models="$selected_models $model_name"
                 python3 my_project/main.py $model_name
             else
-                echo "⚠️ You have already selected $model_name. Please choose a different model. ⚠️"
+                echo "You have already selected $model_name. Please choose a different model."
             fi
         fi
     done
@@ -109,11 +109,11 @@ while true; do
                 break
                 ;;
             *)
-                echo "❌ Not a valid choice! Please repeat. ❌"
+                echo "Not a valid choice! Please repeat."
                 ;;
         esac
     else
-        echo "❌ Not a valid choice! Please repeat. ❌"
+        echo "Not a valid choice! Please repeat."
         break
     fi
 done
@@ -139,11 +139,11 @@ while true; do
                 exit 1
                 ;;
             *)
-                echo "❌ Not a valid choice! Please repeat. ❌"
+                echo "Not a valid choice! Please repeat."
                 ;;
         esac
     else
-        echo "❌ Not a valid choice! Please repeat. ❌"
+        echo "Not a valid choice! Please repeat."
         break
     fi
 done
